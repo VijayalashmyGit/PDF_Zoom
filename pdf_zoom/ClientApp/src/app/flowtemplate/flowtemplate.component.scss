@@ -1,0 +1,36 @@
+.pdf-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+pdf-viewer {
+    width: 100%;
+    height: 100%;
+}
+
+.btn {
+    position: fixed;
+    background-color: #1473e6;
+    border: none;
+    border-radius: 1.5vw;
+    width: 3vw;
+    height: 3vw;
+    color: white;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+}
+
+.prev_btn {
+    left: 11vw;
+    top: 23vw;
+}
+
+.nxt_btn {
+    left: 86vw;
+    top: 23vw;
+}

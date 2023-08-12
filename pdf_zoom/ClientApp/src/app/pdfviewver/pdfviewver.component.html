@@ -1,0 +1,45 @@
+
+<div #pdfViewerContainer id="pdfViewerContainer">
+
+    <pdf-viewer id="pdf-viewer" class="{{(loaded)?'show':''}}" oncontextmenu="return false;"
+                [src]="pdfSrc"
+                [rotation]="0"
+                [original-size]="true"
+                [show-all]="false"
+                [(page)]="page"
+                [fit-to-page]="true"
+                [zoom]="pdfZoom"
+                [render-text]="true"
+                [external-link-target]="'blank'"
+                [autoresize]="true"
+                [show-borders]="true"
+                (text-layer-rendered)="showPage()"
+                (after-load-complete)="loadComplete($event)"
+                (page-rendered)="pageRendered($event)"
+                (click)="onPdfClick($event)">
+    </pdf-viewer>  
+    
+</div>
+
+<div id="pdfLoader" *ngIf="!loaded">
+    <img src="assets/loader.gif">
+</div>
+
+<ng-container *ngFor="let pos of label_detail; let i = index">
+    <label class="label_select" (click)="openModal(1, pos.div_height,pos.canvas_top,pos.canvas_left,pos.dyn_scale)" [ngStyle]="{'top': pos.top,'left': pos.left,'width': pos.width,'height': pos.height}"></label>
+</ng-container>
+
+<div *ngIf="showModal" class="modal">
+    <div class="modal-content">
+        <div class="pdf-viewport" #container [ngStyle]="{'height': pdfdiv_height}">
+            <canvas #cropCanvas></canvas>
+        </div>
+        <button class="close-button" (click)="closeModal()">Tillbaka</button>
+    </div>
+</div>
+
+
+
+
+
+

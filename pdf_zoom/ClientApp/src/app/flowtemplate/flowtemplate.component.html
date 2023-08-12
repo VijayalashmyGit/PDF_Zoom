@@ -1,0 +1,22 @@
+<div class="pdf-container">
+    <app-pdfviewver *ngIf="isShowpdf" [pdfSrc]="pdfSrc" 
+                 [data]="data" 
+                 [label_detail]="label_detail"></app-pdfviewver>
+    <button *ngIf="isShowprev" class="btn prev_btn" (click)="loadprevdata()">&lt;</button>
+    <button *ngIf="isShownxt" class="btn nxt_btn" (click)="loadnxtdata()">&gt;</button>   
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
